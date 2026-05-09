@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Feedbacks</title>
+</head>
+<body>
+    <h1>Feedbacks dos Alunos</h1>
+
+    <% if (feedbacks.length === 0) { %>
+        <p>Nenhum feedback encontrado.</p>
+    <% } else { %>
+        <ul>
+            <% feedbacks.forEach(item => { %>
+                <li style="margin-bottom: 15px;">
+                    <strong><%= item.nome %>:</strong> 
+                    <span><%= item.comentario %></span>
+                    
+                    <!-- Formulário de Remoção -->
+                    <form action="/feedbacks/remover" method="POST" style="display: inline;">
+                        <input type="hidden" name="id" value="<%= item.id %>">
+                        <button type="submit" style="color: red;">Remover</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
+
+    <hr>
+    <a href="/">Voltar ao Formulário</a>
+</body>
+</html>
