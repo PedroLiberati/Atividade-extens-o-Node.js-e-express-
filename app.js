@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 app.post('/feedbacks/enviar', (req, res) => {
     const { nome, comentario } = req.body;
 
-    // Validação simples
+    // validação ou confirmação simples
     if (!nome || !comentario) {
         return res.send("Nome e comentário são obrigatórios.");
     }
